@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "714782833911",
+    "project_id": "abang-ce370",
+    "storage_bucket": "abang-ce370.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714782833911:android:3cd9f51ec02a270819a7f2",
+        "android_client_info": {
+          "package_name": "com.example.abang"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "714782833911-dhtgoqnp2htevgbbps56thdgqc58th2j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUUlET6gdDUDzXVmdAtDebKfABxHQ9F7c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "714782833911-dhtgoqnp2htevgbbps56thdgqc58th2j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
