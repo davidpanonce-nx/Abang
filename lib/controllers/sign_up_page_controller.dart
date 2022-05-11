@@ -1,9 +1,18 @@
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class SignUpPageController extends ChangeNotifier {
+  SignUpPageController._privateConstructor();
+
+  static final SignUpPageController _signUpPageController =
+      SignUpPageController._privateConstructor();
+
+  factory SignUpPageController() {
+    return _signUpPageController;
+  }
   int _currentPage = 1;
 
   int get currentPage => _currentPage;
@@ -218,5 +227,58 @@ class SignUpPageController extends ChangeNotifier {
     _barangays.sort((a, b) =>
         a.toString().toLowerCase().compareTo(b.toString().toLowerCase()));
     notifyListeners();
+  }
+
+  //Signature Pad Vars
+  bool _isSigned = false;
+  Uint8List? _signatureData;
+  bool _validate = false;
+
+  bool get isSigned => _isSigned;
+  Uint8List get signatureData => _signatureData!;
+  bool get validate => _validate;
+
+  setValidate(val) {
+    _validate = val;
+    notifyListeners();
+  }
+
+  setIsSigned(val) {
+    _isSigned = val;
+  }
+
+  setSignatureData(Uint8List data) {
+    _signatureData = data;
+    notifyListeners();
+  }
+
+  clearSignatureData() {
+    _isSigned = false;
+    _signatureData = null;
+  }
+
+  //SignUp
+
+  bool _isLoading = false;
+  String _errorMessage = "";
+
+  bool get isLoading => _isLoading;
+  String get errorMessage => _errorMessage;
+
+  setIsLoading(val) {
+    _isLoading = val;
+    notifyListeners();
+  }
+
+  setErrorMessage(val) {
+    _errorMessage = val;
+    notifyListeners();
+  }
+
+  setRuntimeDataToDefault() {
+    clearSignatureData();
+    setValuesToDefault();
+    _isLoading = false;
+    _errorMessage = "";
   }
 }

@@ -11,8 +11,7 @@ class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final scale = mockUpWidth / size.width;
-    final textScale = size.width / mockUpWidth;
+
     Timer(
       const Duration(seconds: 3),
       () => Navigator.of(context).pushReplacement(

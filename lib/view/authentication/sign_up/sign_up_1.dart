@@ -9,17 +9,20 @@ class SignUpPage1 extends StatefulWidget {
     required this.firstNameController,
     required this.middleNameController,
     required this.lastNameController,
+    required this.formKey,
   }) : super(key: key);
 
   final TextEditingController firstNameController;
   final TextEditingController middleNameController;
   final TextEditingController lastNameController;
+  final GlobalKey<FormState> formKey;
   @override
   State<SignUpPage1> createState() => _SignUpPage1State();
 }
 
 class _SignUpPage1State extends State<SignUpPage1>
     with TickerProviderStateMixin {
+  // ANIMATION VARIABLES
   late AnimationController _animationController;
   late AnimationController _fadeController;
   late final Animation<double> _fadeAnimation = Tween<double>(
@@ -78,181 +81,196 @@ class _SignUpPage1State extends State<SignUpPage1>
               width: size.width,
               padding: EdgeInsets.symmetric(
                   horizontal: 12 / mockUpWidth * size.width),
-              child: Column(
-                children: [
-                  Text(
-                    "What's your name?",
-                    textAlign: TextAlign.center,
-                    textScaleFactor: textScale,
-                    style: abangTextStyles.titleTextStyle.copyWith(
-                        color: abangColors.abangWhite, letterSpacing: 0.15),
-                  ),
-                  SizedBox(
-                    height: 91 / mockUpHeight * size.height,
-                  ),
-                  TextFormField(
-                    cursorColor: abangColors.abangWhite,
-                    cursorHeight: 20 / mockUpHeight * size.height,
-                    controller: widget.firstNameController,
-                    style: abangTextStyles.smallTextStyle
-                        .copyWith(color: abangColors.abangWhite),
-                    decoration: InputDecoration(
-                      isCollapsed: true,
-                      contentPadding: EdgeInsets.fromLTRB(
-                        20 / mockUpWidth * size.width,
-                        20 / mockUpHeight * size.height,
-                        20 / mockUpWidth * size.width,
-                        20 / mockUpHeight * size.height,
-                      ),
-                      hintText: "First name",
-                      hintStyle: abangTextStyles.smallTextStyle.copyWith(
-                        color: abangColors.abangWhite.withOpacity(0.50),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius:
-                            BorderRadius.circular(5 / mockUpWidth * size.width),
-                        borderSide: BorderSide(
-                          color: abangColors.abangYellow,
-                          width: 2.0 / mockUpWidth * size.width,
+              child: Form(
+                key: widget.formKey,
+                child: Column(
+                  children: [
+                    Text(
+                      "What's your name?",
+                      textAlign: TextAlign.center,
+                      textScaleFactor: textScale,
+                      style: abangTextStyles.titleTextStyle.copyWith(
+                          color: abangColors.abangWhite, letterSpacing: 0.15),
+                    ),
+                    SizedBox(
+                      height: 80 / mockUpHeight * size.height,
+                    ),
+                    TextFormField(
+                      cursorColor: abangColors.abangWhite,
+                      cursorHeight: 20 / mockUpHeight * size.height,
+                      controller: widget.firstNameController,
+                      style: abangTextStyles.smallTextStyle
+                          .copyWith(color: abangColors.abangWhite),
+                      validator: (val) {
+                        if (val == null || val.isEmpty) {
+                          return "Please enter your first name";
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        isCollapsed: true,
+                        contentPadding: EdgeInsets.fromLTRB(
+                          20 / mockUpWidth * size.width,
+                          20 / mockUpHeight * size.height,
+                          20 / mockUpWidth * size.width,
+                          20 / mockUpHeight * size.height,
                         ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius:
-                            BorderRadius.circular(5 / mockUpWidth * size.width),
-                        borderSide: BorderSide(
-                          color: abangColors.abangYellow,
-                          width: 2.0 / mockUpWidth * size.width,
+                        hintText: "First name",
+                        hintStyle: abangTextStyles.smallTextStyle.copyWith(
+                          color: abangColors.abangWhite.withOpacity(0.50),
                         ),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderRadius:
-                            BorderRadius.circular(5 / mockUpWidth * size.width),
-                        borderSide: BorderSide(
-                          color: abangColors.abangSecondary,
-                          width: 2.0 / mockUpWidth * size.width,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                              5 / mockUpWidth * size.width),
+                          borderSide: BorderSide(
+                            color: abangColors.abangYellow,
+                            width: 2.0 / mockUpWidth * size.width,
+                          ),
                         ),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderRadius:
-                            BorderRadius.circular(5 / mockUpWidth * size.width),
-                        borderSide: BorderSide(
-                          color: abangColors.abangSecondary,
-                          width: 2.0 / mockUpWidth * size.width,
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                              5 / mockUpWidth * size.width),
+                          borderSide: BorderSide(
+                            color: abangColors.abangYellow,
+                            width: 2.0 / mockUpWidth * size.width,
+                          ),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                              5 / mockUpWidth * size.width),
+                          borderSide: BorderSide(
+                            color: abangColors.abangSecondary,
+                            width: 2.0 / mockUpWidth * size.width,
+                          ),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                              5 / mockUpWidth * size.width),
+                          borderSide: BorderSide(
+                            color: abangColors.abangSecondary,
+                            width: 2.0 / mockUpWidth * size.width,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 8 / mockUpHeight * size.height,
-                  ),
-                  TextFormField(
-                    cursorColor: abangColors.abangWhite,
-                    cursorHeight: 20 / mockUpHeight * size.height,
-                    controller: widget.middleNameController,
-                    style: abangTextStyles.smallTextStyle
-                        .copyWith(color: abangColors.abangWhite),
-                    decoration: InputDecoration(
-                      isCollapsed: true,
-                      contentPadding: EdgeInsets.fromLTRB(
-                        20 / mockUpWidth * size.width,
-                        20 / mockUpHeight * size.height,
-                        20 / mockUpWidth * size.width,
-                        20 / mockUpHeight * size.height,
-                      ),
-                      hintText: "Middle name (optional)",
-                      hintStyle: abangTextStyles.smallTextStyle.copyWith(
-                        color: abangColors.abangWhite.withOpacity(0.50),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius:
-                            BorderRadius.circular(5 / mockUpWidth * size.width),
-                        borderSide: BorderSide(
-                          color: abangColors.abangYellow,
-                          width: 2.0 / mockUpWidth * size.width,
+                    SizedBox(
+                      height: 8 / mockUpHeight * size.height,
+                    ),
+                    TextFormField(
+                      cursorColor: abangColors.abangWhite,
+                      cursorHeight: 20 / mockUpHeight * size.height,
+                      controller: widget.middleNameController,
+                      style: abangTextStyles.smallTextStyle
+                          .copyWith(color: abangColors.abangWhite),
+                      decoration: InputDecoration(
+                        isCollapsed: true,
+                        contentPadding: EdgeInsets.fromLTRB(
+                          20 / mockUpWidth * size.width,
+                          20 / mockUpHeight * size.height,
+                          20 / mockUpWidth * size.width,
+                          20 / mockUpHeight * size.height,
                         ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius:
-                            BorderRadius.circular(5 / mockUpWidth * size.width),
-                        borderSide: BorderSide(
-                          color: abangColors.abangYellow,
-                          width: 2.0 / mockUpWidth * size.width,
+                        hintText: "Middle name (optional)",
+                        hintStyle: abangTextStyles.smallTextStyle.copyWith(
+                          color: abangColors.abangWhite.withOpacity(0.50),
                         ),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderRadius:
-                            BorderRadius.circular(5 / mockUpWidth * size.width),
-                        borderSide: BorderSide(
-                          color: abangColors.abangSecondary,
-                          width: 2.0 / mockUpWidth * size.width,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                              5 / mockUpWidth * size.width),
+                          borderSide: BorderSide(
+                            color: abangColors.abangYellow,
+                            width: 2.0 / mockUpWidth * size.width,
+                          ),
                         ),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderRadius:
-                            BorderRadius.circular(5 / mockUpWidth * size.width),
-                        borderSide: BorderSide(
-                          color: abangColors.abangSecondary,
-                          width: 2.0 / mockUpWidth * size.width,
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                              5 / mockUpWidth * size.width),
+                          borderSide: BorderSide(
+                            color: abangColors.abangYellow,
+                            width: 2.0 / mockUpWidth * size.width,
+                          ),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                              5 / mockUpWidth * size.width),
+                          borderSide: BorderSide(
+                            color: abangColors.abangSecondary,
+                            width: 2.0 / mockUpWidth * size.width,
+                          ),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                              5 / mockUpWidth * size.width),
+                          borderSide: BorderSide(
+                            color: abangColors.abangSecondary,
+                            width: 2.0 / mockUpWidth * size.width,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 8 / mockUpHeight * size.height,
-                  ),
-                  TextFormField(
-                    cursorColor: abangColors.abangWhite,
-                    cursorHeight: 20 / mockUpHeight * size.height,
-                    controller: widget.lastNameController,
-                    style: abangTextStyles.smallTextStyle
-                        .copyWith(color: abangColors.abangWhite),
-                    decoration: InputDecoration(
-                      isCollapsed: true,
-                      contentPadding: EdgeInsets.fromLTRB(
-                        20 / mockUpWidth * size.width,
-                        20 / mockUpHeight * size.height,
-                        20 / mockUpWidth * size.width,
-                        20 / mockUpHeight * size.height,
-                      ),
-                      hintText: "Last name",
-                      hintStyle: abangTextStyles.smallTextStyle.copyWith(
-                        color: abangColors.abangWhite.withOpacity(0.50),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius:
-                            BorderRadius.circular(5 / mockUpWidth * size.width),
-                        borderSide: BorderSide(
-                          color: abangColors.abangYellow,
-                          width: 2.0 / mockUpWidth * size.width,
+                    SizedBox(
+                      height: 8 / mockUpHeight * size.height,
+                    ),
+                    TextFormField(
+                      cursorColor: abangColors.abangWhite,
+                      cursorHeight: 20 / mockUpHeight * size.height,
+                      controller: widget.lastNameController,
+                      style: abangTextStyles.smallTextStyle
+                          .copyWith(color: abangColors.abangWhite),
+                      validator: (val) {
+                        if (val == null || val.isEmpty) {
+                          return "Please enter your last name";
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        isCollapsed: true,
+                        contentPadding: EdgeInsets.fromLTRB(
+                          20 / mockUpWidth * size.width,
+                          20 / mockUpHeight * size.height,
+                          20 / mockUpWidth * size.width,
+                          20 / mockUpHeight * size.height,
                         ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius:
-                            BorderRadius.circular(5 / mockUpWidth * size.width),
-                        borderSide: BorderSide(
-                          color: abangColors.abangYellow,
-                          width: 2.0 / mockUpWidth * size.width,
+                        hintText: "Last name",
+                        hintStyle: abangTextStyles.smallTextStyle.copyWith(
+                          color: abangColors.abangWhite.withOpacity(0.50),
                         ),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderRadius:
-                            BorderRadius.circular(5 / mockUpWidth * size.width),
-                        borderSide: BorderSide(
-                          color: abangColors.abangSecondary,
-                          width: 2.0 / mockUpWidth * size.width,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                              5 / mockUpWidth * size.width),
+                          borderSide: BorderSide(
+                            color: abangColors.abangYellow,
+                            width: 2.0 / mockUpWidth * size.width,
+                          ),
                         ),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderRadius:
-                            BorderRadius.circular(5 / mockUpWidth * size.width),
-                        borderSide: BorderSide(
-                          color: abangColors.abangSecondary,
-                          width: 2.0 / mockUpWidth * size.width,
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                              5 / mockUpWidth * size.width),
+                          borderSide: BorderSide(
+                            color: abangColors.abangYellow,
+                            width: 2.0 / mockUpWidth * size.width,
+                          ),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                              5 / mockUpWidth * size.width),
+                          borderSide: BorderSide(
+                            color: abangColors.abangSecondary,
+                            width: 2.0 / mockUpWidth * size.width,
+                          ),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                              5 / mockUpWidth * size.width),
+                          borderSide: BorderSide(
+                            color: abangColors.abangSecondary,
+                            width: 2.0 / mockUpWidth * size.width,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );
