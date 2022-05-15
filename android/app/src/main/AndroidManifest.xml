@@ -3,7 +3,7 @@
    <application
         android:label="abang"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/abang_launcher_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"
