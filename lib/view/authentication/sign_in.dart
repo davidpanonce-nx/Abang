@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 
 import '../../components/constants.dart';
 import '../../controllers/routes.dart';
-import 'sign_up_selection.dart';
+import '../../main.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -285,7 +285,7 @@ class _SignInState extends State<SignIn> with FirebaseAuthentication {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        const SignUpSelection(),
+                                        const AbangAuthWrapper(),
                                   ),
                                 );
                               }

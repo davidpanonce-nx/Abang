@@ -1,6 +1,6 @@
 import 'package:abang/components/themes.dart';
 import 'package:abang/controllers/on_boarding_controller.dart';
-import 'package:abang/view/splash.dart';
+import 'package:abang/view/authentication/sign_up_selection.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +13,6 @@ class WalkthroughWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final scale = mockUpWidth / size.width;
     final textScale = size.width / mockUpWidth;
     final onBoardingPageController =
         Provider.of<OnBoardingPageController>(context);
@@ -32,18 +31,6 @@ class WalkthroughWrapper extends StatelessWidget {
                     : onBoardingPageController.currentPageIndex == 2
                         ? onBoardingPageController.onBoardingScreens[2]
                         : onBoardingPageController.onBoardingScreens[3],
-            Positioned(
-              top: 50 / mockUpHeight * size.height,
-              left: 12 / mockUpWidth * size.width,
-              child: IconButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                color: abangColors.abangYellow,
-                iconSize: 24 / mockUpWidth * size.width,
-                icon: const Icon(Icons.arrow_back),
-              ),
-            ),
             Positioned(
               bottom: 91 / mockUpHeight * size.height,
               child: Column(
@@ -77,7 +64,7 @@ class WalkthroughWrapper extends StatelessWidget {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const Splash()));
+                                builder: (context) => const SignUpSelection()));
                       } else {
                         onBoardingPageController.setCurrentPageIndex();
                       }

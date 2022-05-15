@@ -2,7 +2,6 @@ import 'package:abang/components/loading.dart';
 import 'package:abang/models/models.dart';
 import 'package:abang/services/firebase_auth.dart';
 import 'package:abang/services/firestore_db.dart';
-import 'package:abang/view/authentication/sign_up_selection.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +10,7 @@ import 'package:uuid/uuid.dart';
 import '../../../components/constants.dart';
 import '../../../components/themes.dart';
 import '../../../controllers/sign_up_page_controller.dart';
+import '../../../main.dart';
 import 'sign_up_1.dart';
 import 'sign_up_2.dart';
 import 'sign_up_3.dart';
@@ -271,7 +271,7 @@ class _SignUpWrapperState extends State<SignUpWrapper>
                                                   context,
                                                   MaterialPageRoute(
                                                     builder: (context) =>
-                                                        const SignUpSelection(),
+                                                        const AbangAuthWrapper(),
                                                   ),
                                                 );
                                               });
