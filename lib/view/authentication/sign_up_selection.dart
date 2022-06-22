@@ -55,6 +55,7 @@ class SignUpSelection extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () async {
                     await signUpPageController.readJson().whenComplete(() {
+                      signUpPageController.setIsLoading(false);
                       Navigator.of(context).push(routes.toSignUp());
                     });
                   },
@@ -104,6 +105,7 @@ class SignUpSelection extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: () {
+                            signUpPageController.setIsLoading(false);
                             Navigator.of(context)
                                 .pushReplacement(routes.toSignIn());
                           },

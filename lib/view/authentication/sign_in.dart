@@ -279,7 +279,6 @@ class _SignInState extends State<SignIn> with FirebaseAuthentication {
                                     .setErrorMessage(response["data"]);
                                 signUpPageController.setIsLoading(false);
                               } else {
-                                signUpPageController.setIsLoading(false);
                                 signUpPageController.setErrorMessage("");
                                 Navigator.pushReplacement(
                                   context,

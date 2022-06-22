@@ -2,6 +2,7 @@ import 'package:abang/components/loading.dart';
 import 'package:abang/models/models.dart';
 import 'package:abang/services/firebase_auth.dart';
 import 'package:abang/services/firestore_db.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,6 +10,7 @@ import 'package:uuid/uuid.dart';
 
 import '../../../components/constants.dart';
 import '../../../components/themes.dart';
+import '../../../controllers/create_house_code_controller.dart';
 import '../../../controllers/sign_up_page_controller.dart';
 import '../../../main.dart';
 import 'sign_up_1.dart';
@@ -65,6 +67,8 @@ class _SignUpWrapperState extends State<SignUpWrapper>
     final size = MediaQuery.of(context).size;
     final textScale = size.width / mockUpWidth;
     final signUpPageController = Provider.of<SignUpPageController>(context);
+    final createHouseCodeController =
+        Provider.of<CreateHouseCodeConroller>(context);
     return signUpPageController.isLoading
         ? const AbangLoading(text: "Creating User")
         : GestureDetector(
@@ -225,13 +229,15 @@ class _SignUpWrapperState extends State<SignUpWrapper>
                                                 FirebaseAuth
                                                     .instance.currentUser!.uid,
                                               );
+                                              await createHouseCodeController
+                                                  .cacheSignatureURL(url);
                                               var uuid = const Uuid();
 
                                               AbangUser user = AbangUser(
                                                 userID: FirebaseAuth
                                                     .instance.currentUser!.uid,
                                                 role: "TBD",
-                                                dateCreated: DateTime.now(),
+                                                dateCreated: Timestamp.now(),
                                                 userInfoID: uuid.v4(),
                                                 firstName: _firstNameController
                                                     .text
@@ -246,6 +252,8 @@ class _SignUpWrapperState extends State<SignUpWrapper>
                                                     _contactNumberController
                                                         .text
                                                         .trim(),
+                                                avatarURL:
+                                                    "https://firebasestorage.googleapis.com/v0/b/abang-ce370.appspot.com/o/establishment%2FhfhAn6666172%2Favatars%2FdefaultAvatar.png?alt=media&token=e00d6e88-1186-4773-8ba3-4773ca540d2b",
                                                 signatureURL: url,
                                                 email: _emailController.text
                                                     .trim(),

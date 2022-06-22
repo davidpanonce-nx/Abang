@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class BaseData {
   String landlordID;
   String? tenantID;
@@ -64,12 +66,14 @@ class BasicInformation extends Location {
 
 class AbangUser extends BasicInformation {
   String userID;
-  DateTime dateCreated;
+  Timestamp dateCreated;
   String role;
+  String avatarURL;
   AbangUser({
     required this.userID,
     required this.role,
     required this.dateCreated,
+    required this.avatarURL,
     required String userInfoID,
     required String firstName,
     String? middleName,
@@ -110,6 +114,7 @@ class AbangUser extends BasicInformation {
         "contactNumber": contactNumber,
         "email": email,
       },
+      "avatarURL": avatarURL,
       "signatureURL": signatureURL,
       "location": {
         "locationID": locationID,
@@ -126,18 +131,19 @@ class AbangUser extends BasicInformation {
       userID: data["userID"],
       role: data["role"],
       dateCreated: data["dateCreated"],
-      userInfoID: data["userInfoID"],
-      firstName: data["firstName"],
-      middleName: data["middleName"],
-      lastName: data["lastName"],
-      contactNumber: data["contactNumber"],
+      userInfoID: data["basicInformation"]["userInfoID"],
+      firstName: data["basicInformation"]["firstName"],
+      middleName: data["basicInformation"]["middleName"] ?? "",
+      lastName: data["basicInformation"]["lastName"],
+      contactNumber: data["basicInformation"]["contactNumber"],
+      avatarURL: data["avatarURL"],
       signatureURL: data["signatureURL"],
-      email: data["email"],
-      locationID: data["locationID"],
-      region: data["region"],
-      province: data["province"],
-      city: data["city"],
-      barangay: data["barangay"],
+      email: data["basicInformation"]["email"],
+      locationID: data["location"]["locationID"],
+      region: data["location"]["region"],
+      province: data["location"]["province"] ?? "",
+      city: data["location"]["city"],
+      barangay: data["location"]["barangay"],
     );
     return user;
   }
@@ -151,7 +157,7 @@ class AbangEstablishmentDetails extends Location {
   double roomRate;
   Map<String, dynamic>? paymentInc;
   Map<String, dynamic>? otherPayments;
-  Map<String, dynamic> contractDetails;
+  Map<String, dynamic>? contractDetails;
   List<String> estImgURLs;
   String signatureURL;
   BaseData idData;
@@ -230,7 +236,15 @@ class AbangEstablishmentDetails extends Location {
 }
 
 class HouseCodes extends BaseData {
+  Map<String, dynamic> roomAvailability;
+  int occupied;
+  int vacants;
+  int tenants;
   HouseCodes({
+    required this.roomAvailability,
+    required this.occupied,
+    required this.vacants,
+    required this.tenants,
     required String landlordID,
     required String houseCode,
   }) : super(
@@ -240,6 +254,10 @@ class HouseCodes extends BaseData {
 
   Map<String, dynamic> toMap() {
     return {
+      "occupied": occupied,
+      "vacants": vacants,
+      "tenants": tenants,
+      "roomAvailability": roomAvailability,
       "landlordID": landlordID,
       "houseCode": houseCode,
     };
@@ -247,6 +265,10 @@ class HouseCodes extends BaseData {
 
   factory HouseCodes.fromMap(Map<String, dynamic> data) {
     HouseCodes houseCodes = HouseCodes(
+      occupied: data["occupied"],
+      vacants: data["vacants"],
+      tenants: data["tenants"],
+      roomAvailability: data["roomAvailability"],
       landlordID: data["landlordID"],
       houseCode: data["houseCode"],
     );
@@ -399,10 +421,12 @@ class Notifications {
 }
 
 class Tenants extends BaseData {
+  int? roomNumber;
   Tenants({
     required String landlordID,
     required String tenantID,
     required String houseCode,
+    required roomNumber,
   }) : super(
           landlordID: landlordID,
           tenantID: tenantID,
@@ -414,6 +438,7 @@ class Tenants extends BaseData {
       "landlordID": landlordID,
       "tenantID": tenantID,
       "houseCode": houseCode,
+      "roomNumber": roomNumber,
     };
   }
 
@@ -422,8 +447,8 @@ class Tenants extends BaseData {
       landlordID: data["landlordID"],
       tenantID: data["tenantID"],
       houseCode: data["houseCode"],
+      roomNumber: data["roomNumber"],
     );
-
     return tenant;
   }
 }

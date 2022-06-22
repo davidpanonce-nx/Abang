@@ -361,6 +361,7 @@ class _SignUpPage4State extends State<SignUpPage4>
                           ),
                           Text(
                             signUpPageController.errorMessage,
+                            textAlign: TextAlign.center,
                             style:
                                 abangTextStyles.descriptionTextStyle.copyWith(
                               color: abangColors.abangSecondary,

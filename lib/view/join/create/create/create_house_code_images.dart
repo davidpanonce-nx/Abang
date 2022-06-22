@@ -45,15 +45,65 @@ class _CreateHouseCodeImagesState extends State<CreateHouseCodeImages> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 GestureDetector(
-                  onTap: () {},
-                  child: addImageButton(size),
+                  onTap: () async {
+                    await createHouseCodeController.pickImageFromGallery(1);
+                  },
+                  child: createHouseCodeController.image1 != null
+                      ? Container(
+                          width: 136 / mockUpWidth * size.width,
+                          height: 120 / mockUpHeight * size.height,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: abangColors.abangWhite,
+                              width: 2 / mockUpWidth * size.width,
+                            ),
+                            borderRadius: BorderRadius.circular(
+                                10 / mockUpWidth * size.width),
+                          ),
+                          child: ClipRRect(
+                            clipBehavior: Clip.antiAlias,
+                            borderRadius: BorderRadius.circular(
+                                10 / mockUpWidth * size.width),
+                            child: Image.file(
+                              createHouseCodeController.image1!,
+                              isAntiAlias: true,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        )
+                      : addImageButton(size),
                 ),
                 SizedBox(
                   width: 30 / mockUpWidth * size.width,
                 ),
                 GestureDetector(
-                  onTap: () {},
-                  child: addImageButton(size),
+                  onTap: () async {
+                    await createHouseCodeController.pickImageFromGallery(2);
+                  },
+                  child: createHouseCodeController.image2 != null
+                      ? Container(
+                          width: 136 / mockUpWidth * size.width,
+                          height: 120 / mockUpHeight * size.height,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: abangColors.abangWhite,
+                              width: 2 / mockUpWidth * size.width,
+                            ),
+                            borderRadius: BorderRadius.circular(
+                                10 / mockUpWidth * size.width),
+                          ),
+                          child: ClipRRect(
+                            clipBehavior: Clip.antiAlias,
+                            borderRadius: BorderRadius.circular(
+                                10 / mockUpWidth * size.width),
+                            child: Image.file(
+                              createHouseCodeController.image2!,
+                              isAntiAlias: true,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        )
+                      : addImageButton(size),
                 ),
               ],
             ),
@@ -64,20 +114,84 @@ class _CreateHouseCodeImagesState extends State<CreateHouseCodeImages> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 GestureDetector(
-                  onTap: () {},
-                  child: addImageButton(size),
+                  onTap: () async {
+                    await createHouseCodeController.pickImageFromGallery(3);
+                  },
+                  child: createHouseCodeController.image3 != null
+                      ? Container(
+                          width: 136 / mockUpWidth * size.width,
+                          height: 120 / mockUpHeight * size.height,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: abangColors.abangWhite,
+                              width: 2 / mockUpWidth * size.width,
+                            ),
+                            borderRadius: BorderRadius.circular(
+                                10 / mockUpWidth * size.width),
+                          ),
+                          child: ClipRRect(
+                            clipBehavior: Clip.antiAlias,
+                            borderRadius: BorderRadius.circular(
+                                10 / mockUpWidth * size.width),
+                            child: Image.file(
+                              createHouseCodeController.image3!,
+                              isAntiAlias: true,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        )
+                      : addImageButton(size),
                 ),
                 SizedBox(
                   width: 30 / mockUpWidth * size.width,
                 ),
                 GestureDetector(
-                  onTap: () {},
-                  child: addImageButton(size),
+                  onTap: () async {
+                    await createHouseCodeController.pickImageFromGallery(4);
+                  },
+                  child: createHouseCodeController.image4 != null
+                      ? Container(
+                          width: 136 / mockUpWidth * size.width,
+                          height: 120 / mockUpHeight * size.height,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: abangColors.abangWhite,
+                              width: 2 / mockUpWidth * size.width,
+                            ),
+                            borderRadius: BorderRadius.circular(
+                                10 / mockUpWidth * size.width),
+                          ),
+                          child: ClipRRect(
+                            clipBehavior: Clip.antiAlias,
+                            borderRadius: BorderRadius.circular(
+                                10 / mockUpWidth * size.width),
+                            child: Image.file(
+                              createHouseCodeController.image4!,
+                              isAntiAlias: true,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        )
+                      : addImageButton(size),
                 ),
               ],
             )
           ],
-        )
+        ),
+        Visibility(
+          visible: createHouseCodeController.imageComplete ?? false,
+          child: Padding(
+            padding: EdgeInsets.only(
+              top: 20 / mockUpHeight * size.height,
+            ),
+            child: Text(
+              "Please upload four(4) photos of your establishment.",
+              textScaleFactor: textScale,
+              style: abangTextStyles.smallTextStyle
+                  .copyWith(color: abangColors.abangYellow, fontSize: 12),
+            ),
+          ),
+        ),
       ],
     );
   }
