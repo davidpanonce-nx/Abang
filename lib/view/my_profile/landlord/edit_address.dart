@@ -160,10 +160,10 @@ class _EditAddressState extends State<EditAddress> with FirestoreDataServices {
                       SizedBox(height: 20 / mockUpHeight * size.height),
                       DropdownButtonFormField2(
                         isExpanded: true,
-                        itemHeight: 60 / mockUpHeight * size.height,
-                        dropdownMaxHeight: 200 / mockUpHeight * size.height,
-                        offset: Offset(0, 10.0 / mockUpHeight * size.height),
-                        focusColor: abangColors.abangWhite,
+                        // itemHeight: 60 / mockUpHeight * size.height,
+                        // dropdownMaxHeight: 200 / mockUpHeight * size.height,
+                        // offset: Offset(0, 10.0 / mockUpHeight * size.height),
+                        // focusColor: abangColors.abangWhite,
                         validator: (val) {
                           if (val == null) {
                             return "Region can't be empty";
@@ -208,14 +208,15 @@ class _EditAddressState extends State<EditAddress> with FirestoreDataServices {
                             ),
                           ),
                         ),
-                        dropdownDecoration: BoxDecoration(
-                          color: abangColors.abangYellow,
-                          borderRadius: BorderRadius.circular(
-                            5 / mockUpWidth * size.width,
-                          ),
-                        ),
+                        // dropdownDecoration: BoxDecoration(
+                        //   color: abangColors.abangYellow,
+                        //   borderRadius: BorderRadius.circular(
+                        //     5 / mockUpWidth * size.width,
+                        //   ),
+                        // ),
                         items: editProfileController.regions.map((e) {
                           return DropdownMenuItem(
+                            value: e,
                             child: Text(
                               e,
                               textScaleFactor: textScale,
@@ -223,7 +224,6 @@ class _EditAddressState extends State<EditAddress> with FirestoreDataServices {
                               style: abangTextStyles.smallTextStyle
                                   .copyWith(color: abangColors.abangWhite),
                             ),
-                            value: e,
                           );
                         }).toList(),
                         onChanged: (val) {
@@ -253,12 +253,12 @@ class _EditAddressState extends State<EditAddress> with FirestoreDataServices {
                               ),
                               child: DropdownButtonFormField2(
                                 isExpanded: true,
-                                itemHeight: 60 / mockUpHeight * size.height,
-                                dropdownMaxHeight:
-                                    200 / mockUpHeight * size.height,
-                                offset: Offset(
-                                    0, 10.0 / mockUpHeight * size.height),
-                                focusColor: abangColors.abangWhite,
+                                // itemHeight: 60 / mockUpHeight * size.height,
+                                // dropdownMaxHeight:
+                                //     200 / mockUpHeight * size.height,
+                                // offset: Offset(
+                                //     0, 10.0 / mockUpHeight * size.height),
+                                // focusColor: abangColors.abangWhite,
                                 validator: (val) {
                                   if (val == null) {
                                     return "City can't be empty";
@@ -305,14 +305,15 @@ class _EditAddressState extends State<EditAddress> with FirestoreDataServices {
                                     ),
                                   ),
                                 ),
-                                dropdownDecoration: BoxDecoration(
-                                  color: abangColors.abangYellow,
-                                  borderRadius: BorderRadius.circular(
-                                    5 / mockUpWidth * size.width,
-                                  ),
-                                ),
+                                // dropdownDecoration: BoxDecoration(
+                                //   color: abangColors.abangYellow,
+                                //   borderRadius: BorderRadius.circular(
+                                //     5 / mockUpWidth * size.width,
+                                //   ),
+                                // ),
                                 items: editProfileController.cities.map((e) {
                                   return DropdownMenuItem(
+                                    value: e,
                                     child: Text(
                                       e,
                                       textScaleFactor: textScale,
@@ -321,7 +322,6 @@ class _EditAddressState extends State<EditAddress> with FirestoreDataServices {
                                           .copyWith(
                                               color: abangColors.abangWhite),
                                     ),
-                                    value: e,
                                   );
                                 }).toList(),
                                 onChanged: (val) {
@@ -343,12 +343,12 @@ class _EditAddressState extends State<EditAddress> with FirestoreDataServices {
                                   ),
                                   child: DropdownButtonFormField2(
                                     isExpanded: true,
-                                    itemHeight: 60 / mockUpHeight * size.height,
-                                    dropdownMaxHeight:
-                                        200 / mockUpHeight * size.height,
-                                    offset: Offset(
-                                        0, 10.0 / mockUpHeight * size.height),
-                                    focusColor: abangColors.abangWhite,
+                                    // itemHeight: 60 / mockUpHeight * size.height,
+                                    // dropdownMaxHeight:
+                                    //     200 / mockUpHeight * size.height,
+                                    // offset: Offset(
+                                    //     0, 10.0 / mockUpHeight * size.height),
+                                    // focusColor: abangColors.abangWhite,
                                     validator: (val) {
                                       if (val == null) {
                                         return "Province can't be empty";
@@ -395,15 +395,16 @@ class _EditAddressState extends State<EditAddress> with FirestoreDataServices {
                                         ),
                                       ),
                                     ),
-                                    dropdownDecoration: BoxDecoration(
-                                      color: abangColors.abangYellow,
-                                      borderRadius: BorderRadius.circular(
-                                        5 / mockUpWidth * size.width,
-                                      ),
-                                    ),
+                                    // dropdownDecoration: BoxDecoration(
+                                    //   color: abangColors.abangYellow,
+                                    //   borderRadius: BorderRadius.circular(
+                                    //     5 / mockUpWidth * size.width,
+                                    //   ),
+                                    // ),
                                     items: editProfileController.provinces
                                         .map((e) {
                                       return DropdownMenuItem(
+                                        value: e,
                                         child: Text(
                                           e,
                                           textScaleFactor: textScale,
@@ -413,7 +414,6 @@ class _EditAddressState extends State<EditAddress> with FirestoreDataServices {
                                                   color:
                                                       abangColors.abangWhite),
                                         ),
-                                        value: e,
                                       );
                                     }).toList(),
                                     onChanged: (val) {
@@ -438,12 +438,12 @@ class _EditAddressState extends State<EditAddress> with FirestoreDataServices {
                               ),
                               child: DropdownButtonFormField2(
                                 isExpanded: true,
-                                itemHeight: 60 / mockUpHeight * size.height,
-                                dropdownMaxHeight:
-                                    200 / mockUpHeight * size.height,
-                                offset: Offset(
-                                    0, 10.0 / mockUpHeight * size.height),
-                                focusColor: abangColors.abangWhite,
+                                // itemHeight: 60 / mockUpHeight * size.height,
+                                // dropdownMaxHeight:
+                                //     200 / mockUpHeight * size.height,
+                                // offset: Offset(
+                                //     0, 10.0 / mockUpHeight * size.height),
+                                // focusColor: abangColors.abangWhite,
                                 validator: (val) {
                                   if (val == null) {
                                     return "City can't be empty";
@@ -490,14 +490,15 @@ class _EditAddressState extends State<EditAddress> with FirestoreDataServices {
                                     ),
                                   ),
                                 ),
-                                dropdownDecoration: BoxDecoration(
-                                  color: abangColors.abangYellow,
-                                  borderRadius: BorderRadius.circular(
-                                    5 / mockUpWidth * size.width,
-                                  ),
-                                ),
+                                // dropdownDecoration: BoxDecoration(
+                                //   color: abangColors.abangYellow,
+                                //   borderRadius: BorderRadius.circular(
+                                //     5 / mockUpWidth * size.width,
+                                //   ),
+                                // ),
                                 items: editProfileController.cities.map((e) {
                                   return DropdownMenuItem(
+                                    value: e,
                                     child: Text(
                                       e,
                                       textScaleFactor: textScale,
@@ -506,7 +507,6 @@ class _EditAddressState extends State<EditAddress> with FirestoreDataServices {
                                           .copyWith(
                                               color: abangColors.abangWhite),
                                     ),
-                                    value: e,
                                   );
                                 }).toList(),
                                 onChanged: (val) {
@@ -528,12 +528,12 @@ class _EditAddressState extends State<EditAddress> with FirestoreDataServices {
                               ),
                               child: DropdownButtonFormField2(
                                 isExpanded: true,
-                                itemHeight: 60 / mockUpHeight * size.height,
-                                dropdownMaxHeight:
-                                    200 / mockUpHeight * size.height,
-                                offset: Offset(
-                                    0, 10.0 / mockUpHeight * size.height),
-                                focusColor: abangColors.abangWhite,
+                                // itemHeight: 60 / mockUpHeight * size.height,
+                                // dropdownMaxHeight:
+                                //     200 / mockUpHeight * size.height,
+                                // offset: Offset(
+                                //     0, 10.0 / mockUpHeight * size.height),
+                                // focusColor: abangColors.abangWhite,
                                 validator: (val) {
                                   if (val == null) {
                                     return "Barangay can't be empty";
@@ -580,14 +580,15 @@ class _EditAddressState extends State<EditAddress> with FirestoreDataServices {
                                     ),
                                   ),
                                 ),
-                                dropdownDecoration: BoxDecoration(
-                                  color: abangColors.abangYellow,
-                                  borderRadius: BorderRadius.circular(
-                                    5 / mockUpWidth * size.width,
-                                  ),
-                                ),
+                                // dropdownDecoration: BoxDecoration(
+                                //   color: abangColors.abangYellow,
+                                //   borderRadius: BorderRadius.circular(
+                                //     5 / mockUpWidth * size.width,
+                                //   ),
+                                // ),
                                 items: editProfileController.barangays.map((e) {
                                   return DropdownMenuItem(
+                                    value: e,
                                     child: Text(
                                       e,
                                       textScaleFactor: textScale,
@@ -596,7 +597,6 @@ class _EditAddressState extends State<EditAddress> with FirestoreDataServices {
                                           .copyWith(
                                               color: abangColors.abangWhite),
                                     ),
-                                    value: e,
                                   );
                                 }).toList(),
                                 onChanged: (val) {

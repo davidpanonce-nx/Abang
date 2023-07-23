@@ -47,7 +47,7 @@ class RecentTicketCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            ticketNumber + " | " + subject,
+            "$ticketNumber | $subject",
             textScaleFactor: textScale,
             textAlign: TextAlign.left,
             style: GoogleFonts.outfit(

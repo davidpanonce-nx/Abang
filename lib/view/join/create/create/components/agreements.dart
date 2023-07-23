@@ -33,9 +33,7 @@ class Agreements extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  createHouseCodeController.agreementsWidgets[id]["index"]
-                          .toString() +
-                      ".",
+                  "${createHouseCodeController.agreementsWidgets[id]["index"].toString()}.",
                   textScaleFactor: textScale,
                   style: GoogleFonts.inter(
                     textStyle: TextStyle(

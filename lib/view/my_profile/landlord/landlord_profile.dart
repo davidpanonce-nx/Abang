@@ -175,16 +175,7 @@ class LandLordProfile extends StatelessWidget {
                                   padding: EdgeInsets.only(
                                       left: 20 / mockUpWidth * size.width),
                                   child: Text(
-                                    snapshot.data!.middleName != ""
-                                        ? snapshot.data!.firstName +
-                                            " " +
-                                            snapshot.data!.middleName! +
-                                            " " +
-                                            snapshot.data!.lastName
-                                        : snapshot.data!.firstName +
-                                            " " +
-                                            snapshot.data!.middleName! +
-                                            snapshot.data!.lastName,
+                                    "${snapshot.data!.firstName} ${snapshot.data!.middleName ?? ""} ${snapshot.data!.lastName}",
                                     textScaleFactor: textScale,
                                     textAlign: TextAlign.left,
                                     style: GoogleFonts.outfit(

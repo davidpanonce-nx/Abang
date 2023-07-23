@@ -1,6 +1,6 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -141,7 +141,7 @@ class EditProfileController extends ChangeNotifier {
       nums.sort();
       if (nums.length == tempBarangays.length) {
         for (var num in nums) {
-          sorted.add("Barangay " + num.toString());
+          sorted.add("Barangay ${num.toString()}");
         }
       }
 
@@ -179,9 +179,9 @@ class EditProfileController extends ChangeNotifier {
           }
           if (count > 1) {
             count = 0;
-            sorted.add("Barangay " + num.toString() + "-A");
+            sorted.add("Barangay ${num.toString()}-A");
           } else {
-            sorted.add("Barangay " + num.toString());
+            sorted.add("Barangay ${num.toString()}");
           }
         }
       }
@@ -254,7 +254,7 @@ class EditProfileController extends ChangeNotifier {
       nums.sort();
       if (nums.length == tempBarangays.length) {
         for (var num in nums) {
-          sorted.add("Barangay " + num.toString());
+          sorted.add("Barangay ${num.toString()}");
         }
       }
 
@@ -292,9 +292,9 @@ class EditProfileController extends ChangeNotifier {
           }
           if (count > 1) {
             count = 0;
-            sorted.add("Barangay " + num.toString() + "-A");
+            sorted.add("Barangay ${num.toString()}-A");
           } else {
-            sorted.add("Barangay " + num.toString());
+            sorted.add("Barangay ${num.toString()}");
           }
         }
       }
@@ -393,7 +393,7 @@ class EditProfileController extends ChangeNotifier {
       final imageTemporaryPath = File(image.path);
       setAvatarImage(imageTemporaryPath);
     } on PlatformException {
-      print("ERROR");
+      log("ERROR");
       return "An error occured";
     }
   }

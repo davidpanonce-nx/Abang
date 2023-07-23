@@ -60,8 +60,8 @@ class _EditSignatureState extends State<EditSignature>
   }
 
   bool _handleOnDrawStart() {
-    EditProfileController _editProfileController = EditProfileController();
-    _editProfileController.setIsSigned(true);
+    EditProfileController editProfileController = EditProfileController();
+    editProfileController.setIsSigned(true);
     return false;
   }
 
@@ -114,8 +114,8 @@ class _EditSignatureState extends State<EditSignature>
   }
 
   void _showDrawPad() {
-    EditProfileController _editProfileController = EditProfileController();
-    _editProfileController.setIsSigned(false);
+    EditProfileController editProfileController = EditProfileController();
+    editProfileController.setIsSigned(false);
 
     showDialog<Widget>(
       context: context,
@@ -250,8 +250,8 @@ class _EditSignatureState extends State<EditSignature>
 
   void _handleClearButtonPressed() {
     _signaturePadKey.currentState!.clear();
-    EditProfileController _editProfileController = EditProfileController();
-    _editProfileController.setIsSigned(false);
+    EditProfileController editProfileController = EditProfileController();
+    editProfileController.setIsSigned(false);
   }
 
   Future<void> _handleSaveButtonPressed() async {
@@ -265,8 +265,8 @@ class _EditSignatureState extends State<EditSignature>
       data = bytes.buffer.asUint8List();
     }
 
-    EditProfileController _editProfileController = EditProfileController();
-    _editProfileController.setSignatureData(data);
+    EditProfileController editProfileController = EditProfileController();
+    editProfileController.setSignatureData(data);
   }
 
   @override

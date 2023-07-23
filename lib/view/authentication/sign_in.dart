@@ -280,18 +280,20 @@ class _SignInState extends State<SignIn> with FirebaseAuthentication {
                                 signUpPageController.setIsLoading(false);
                               } else {
                                 signUpPageController.setErrorMessage("");
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const AbangAuthWrapper(),
-                                  ),
-                                );
+                                if (mounted) {
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const AbangAuthWrapper(),
+                                    ),
+                                  );
+                                }
                               }
                             }
                           },
                           style: ElevatedButton.styleFrom(
-                            primary: abangColors.abangYellow,
+                            backgroundColor: abangColors.abangYellow,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(
                                   5 / mockUpWidth * size.width),

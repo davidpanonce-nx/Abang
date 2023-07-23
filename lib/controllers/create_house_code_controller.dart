@@ -1,9 +1,10 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:abang/view/join/create/create/components/agreements.dart';
-import 'package:abang/view/join/create/create/components/otherPayments.dart';
-import 'package:abang/view/join/create/create/components/paymentInclusions.dart';
+import 'package:abang/view/join/create/create/components/other_payments.dart';
+import 'package:abang/view/join/create/create/components/payment_inclusions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -132,7 +133,7 @@ class CreateHouseCodeConroller extends ChangeNotifier {
           return null;
       }
     } on PlatformException {
-      print("ERROR");
+      log("ERROR");
       return "An error occured";
     }
   }
@@ -239,7 +240,7 @@ class CreateHouseCodeConroller extends ChangeNotifier {
       nums.sort();
       if (nums.length == tempBarangays.length) {
         for (var num in nums) {
-          sorted.add("Barangay " + num.toString());
+          sorted.add("Barangay ${num.toString()}");
         }
       }
 
@@ -277,9 +278,9 @@ class CreateHouseCodeConroller extends ChangeNotifier {
           }
           if (count > 1) {
             count = 0;
-            sorted.add("Barangay " + num.toString() + "-A");
+            sorted.add("Barangay ${num.toString()}-A");
           } else {
-            sorted.add("Barangay " + num.toString());
+            sorted.add("Barangay ${num.toString()}");
           }
         }
       }

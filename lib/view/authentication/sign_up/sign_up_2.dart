@@ -158,10 +158,10 @@ class _SignUpPage2State extends State<SignUpPage2>
                     ),
                     DropdownButtonFormField2(
                       isExpanded: true,
-                      itemHeight: 60 / mockUpHeight * size.height,
-                      dropdownMaxHeight: 200 / mockUpHeight * size.height,
-                      offset: Offset(0, 10.0 / mockUpHeight * size.height),
-                      focusColor: abangColors.abangYellow,
+                      // itemHeight: 60 / mockUpHeight * size.height,
+                      // dropdownMaxHeight: 200 / mockUpHeight * size.height,
+                      // offset: Offset(0, 10.0 / mockUpHeight * size.height),
+                      // focusColor: abangColors.abangYellow,
                       validator: (val) {
                         if (val == null) {
                           return "Region can't be empty";
@@ -206,14 +206,15 @@ class _SignUpPage2State extends State<SignUpPage2>
                           ),
                         ),
                       ),
-                      dropdownDecoration: BoxDecoration(
-                        color: abangColors.abangYellow,
-                        borderRadius: BorderRadius.circular(
-                          5 / mockUpWidth * size.width,
-                        ),
-                      ),
+                      // dropdownDecoration: BoxDecoration(
+                      //   color: abangColors.abangYellow,
+                      //   borderRadius: BorderRadius.circular(
+                      //     5 / mockUpWidth * size.width,
+                      //   ),
+                      // ),
                       items: signUpPageController.regions.map((e) {
                         return DropdownMenuItem(
+                          value: e,
                           child: Text(
                             e,
                             textScaleFactor: textScale,
@@ -221,7 +222,6 @@ class _SignUpPage2State extends State<SignUpPage2>
                             style: abangTextStyles.smallTextStyle
                                 .copyWith(color: abangColors.abangWhite),
                           ),
-                          value: e,
                         );
                       }).toList(),
                       onChanged: (val) {
@@ -250,12 +250,12 @@ class _SignUpPage2State extends State<SignUpPage2>
                             ),
                             child: DropdownButtonFormField2(
                               isExpanded: true,
-                              itemHeight: 60 / mockUpHeight * size.height,
-                              dropdownMaxHeight:
-                                  200 / mockUpHeight * size.height,
-                              offset:
-                                  Offset(0, 10.0 / mockUpHeight * size.height),
-                              focusColor: abangColors.abangYellow,
+                              // itemHeight: 60 / mockUpHeight * size.height,
+                              // dropdownMaxHeight:
+                              //     200 / mockUpHeight * size.height,
+                              // offset:
+                              //     Offset(0, 10.0 / mockUpHeight * size.height),
+                              // focusColor: abangColors.abangYellow,
                               validator: (val) {
                                 if (val == null) {
                                   return "City can't be empty";
@@ -302,14 +302,15 @@ class _SignUpPage2State extends State<SignUpPage2>
                                   ),
                                 ),
                               ),
-                              dropdownDecoration: BoxDecoration(
-                                color: abangColors.abangYellow,
-                                borderRadius: BorderRadius.circular(
-                                  5 / mockUpWidth * size.width,
-                                ),
-                              ),
+                              // dropdownDecoration: BoxDecoration(
+                              //   color: abangColors.abangYellow,
+                              //   borderRadius: BorderRadius.circular(
+                              //     5 / mockUpWidth * size.width,
+                              //   ),
+                              // ),
                               items: signUpPageController.cities.map((e) {
                                 return DropdownMenuItem(
+                                  value: e,
                                   child: Text(
                                     e,
                                     textScaleFactor: textScale,
@@ -318,7 +319,6 @@ class _SignUpPage2State extends State<SignUpPage2>
                                         .copyWith(
                                             color: abangColors.abangWhite),
                                   ),
-                                  value: e,
                                 );
                               }).toList(),
                               onChanged: (val) {
@@ -340,12 +340,12 @@ class _SignUpPage2State extends State<SignUpPage2>
                                 ),
                                 child: DropdownButtonFormField2(
                                   isExpanded: true,
-                                  itemHeight: 60 / mockUpHeight * size.height,
-                                  dropdownMaxHeight:
-                                      200 / mockUpHeight * size.height,
-                                  offset: Offset(
-                                      0, 10.0 / mockUpHeight * size.height),
-                                  focusColor: abangColors.abangYellow,
+                                  // itemHeight: 60 / mockUpHeight * size.height,
+                                  // dropdownMaxHeight:
+                                  //     200 / mockUpHeight * size.height,
+                                  // offset: Offset(
+                                  //     0, 10.0 / mockUpHeight * size.height),
+                                  // focusColor: abangColors.abangYellow,
                                   validator: (val) {
                                     if (val == null) {
                                       return "Province can't be empty";
@@ -392,15 +392,16 @@ class _SignUpPage2State extends State<SignUpPage2>
                                       ),
                                     ),
                                   ),
-                                  dropdownDecoration: BoxDecoration(
-                                    color: abangColors.abangYellow,
-                                    borderRadius: BorderRadius.circular(
-                                      5 / mockUpWidth * size.width,
-                                    ),
-                                  ),
+                                  // dropdownDecoration: BoxDecoration(
+                                  //   color: abangColors.abangYellow,
+                                  //   borderRadius: BorderRadius.circular(
+                                  //     5 / mockUpWidth * size.width,
+                                  //   ),
+                                  // ),
                                   items:
                                       signUpPageController.provinces.map((e) {
                                     return DropdownMenuItem(
+                                      value: e,
                                       child: Text(
                                         e,
                                         textScaleFactor: textScale,
@@ -409,7 +410,6 @@ class _SignUpPage2State extends State<SignUpPage2>
                                             .copyWith(
                                                 color: abangColors.abangWhite),
                                       ),
-                                      value: e,
                                     );
                                   }).toList(),
                                   onChanged: (val) {
@@ -434,12 +434,12 @@ class _SignUpPage2State extends State<SignUpPage2>
                             ),
                             child: DropdownButtonFormField2(
                               isExpanded: true,
-                              itemHeight: 60 / mockUpHeight * size.height,
-                              dropdownMaxHeight:
-                                  200 / mockUpHeight * size.height,
-                              offset:
-                                  Offset(0, 10.0 / mockUpHeight * size.height),
-                              focusColor: abangColors.abangYellow,
+                              // itemHeight: 60 / mockUpHeight * size.height,
+                              // dropdownMaxHeight:
+                              //     200 / mockUpHeight * size.height,
+                              // offset:
+                              //     Offset(0, 10.0 / mockUpHeight * size.height),
+                              // focusColor: abangColors.abangYellow,
                               validator: (val) {
                                 if (val == null) {
                                   return "City can't be empty";
@@ -486,14 +486,15 @@ class _SignUpPage2State extends State<SignUpPage2>
                                   ),
                                 ),
                               ),
-                              dropdownDecoration: BoxDecoration(
-                                color: abangColors.abangYellow,
-                                borderRadius: BorderRadius.circular(
-                                  5 / mockUpWidth * size.width,
-                                ),
-                              ),
+                              // dropdownDecoration: BoxDecoration(
+                              //   color: abangColors.abangYellow,
+                              //   borderRadius: BorderRadius.circular(
+                              //     5 / mockUpWidth * size.width,
+                              //   ),
+                              // ),
                               items: signUpPageController.cities.map((e) {
                                 return DropdownMenuItem(
+                                  value: e,
                                   child: Text(
                                     e,
                                     textScaleFactor: textScale,
@@ -502,7 +503,6 @@ class _SignUpPage2State extends State<SignUpPage2>
                                         .copyWith(
                                             color: abangColors.abangWhite),
                                   ),
-                                  value: e,
                                 );
                               }).toList(),
                               onChanged: (val) {
@@ -524,12 +524,12 @@ class _SignUpPage2State extends State<SignUpPage2>
                             ),
                             child: DropdownButtonFormField2(
                               isExpanded: true,
-                              itemHeight: 60 / mockUpHeight * size.height,
-                              dropdownMaxHeight:
-                                  200 / mockUpHeight * size.height,
-                              offset:
-                                  Offset(0, 10.0 / mockUpHeight * size.height),
-                              focusColor: abangColors.abangYellow,
+                              // itemHeight: 60 / mockUpHeight * size.height,
+                              // dropdownMaxHeight:
+                              //     200 / mockUpHeight * size.height,
+                              // offset:
+                              //     Offset(0, 10.0 / mockUpHeight * size.height),
+                              // focusColor: abangColors.abangYellow,
                               validator: (val) {
                                 if (val == null) {
                                   return "Barangay can't be empty";
@@ -576,14 +576,15 @@ class _SignUpPage2State extends State<SignUpPage2>
                                   ),
                                 ),
                               ),
-                              dropdownDecoration: BoxDecoration(
-                                color: abangColors.abangYellow,
-                                borderRadius: BorderRadius.circular(
-                                  5 / mockUpWidth * size.width,
-                                ),
-                              ),
+                              // dropdownDecoration: BoxDecoration(
+                              //   color: abangColors.abangYellow,
+                              //   borderRadius: BorderRadius.circular(
+                              //     5 / mockUpWidth * size.width,
+                              //   ),
+                              // ),
                               items: signUpPageController.barangays.map((e) {
                                 return DropdownMenuItem(
+                                  value: e,
                                   child: Text(
                                     e,
                                     textScaleFactor: textScale,
@@ -592,7 +593,6 @@ class _SignUpPage2State extends State<SignUpPage2>
                                         .copyWith(
                                             color: abangColors.abangWhite),
                                   ),
-                                  value: e,
                                 );
                               }).toList(),
                               onChanged: (val) {

@@ -361,7 +361,7 @@ class LandLordBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textScale = size.width / mockUpWidth;
-    final _bottomNavController = Provider.of<PageControllers>(context);
+    final bottomNavController = Provider.of<PageControllers>(context);
     return Container(
       width: size.width,
       height: 75 / mockUpHeight * size.height,
@@ -378,7 +378,7 @@ class LandLordBottomNavigationBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           InkWell(
-            onTap: () => _bottomNavController.setBottomNavIndex(0),
+            onTap: () => bottomNavController.setBottomNavIndex(0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -388,9 +388,12 @@ class LandLordBottomNavigationBar extends StatelessWidget {
                   child: FittedBox(
                     child: SvgPicture.asset(
                       "assets/home.svg",
-                      color: _bottomNavController.bottomNavIndex == 0
-                          ? abangColors.abangPrimary
-                          : abangColors.abangPrimary.withOpacity(0.40),
+                      colorFilter: ColorFilter.mode(
+                        bottomNavController.bottomNavIndex == 0
+                            ? abangColors.abangPrimary
+                            : abangColors.abangPrimary.withOpacity(0.40),
+                        BlendMode.srcIn,
+                      ),
                     ),
                   ),
                 ),
@@ -407,7 +410,7 @@ class LandLordBottomNavigationBar extends StatelessWidget {
                       fontSize: 12,
                       height: 0.80,
                       letterSpacing: 0,
-                      color: _bottomNavController.bottomNavIndex == 0
+                      color: bottomNavController.bottomNavIndex == 0
                           ? abangColors.abangPrimary
                           : abangColors.abangPrimary.withOpacity(0.40),
                     ),
@@ -420,7 +423,7 @@ class LandLordBottomNavigationBar extends StatelessWidget {
             width: 81 / mockUpWidth * size.width,
           ),
           InkWell(
-            onTap: () => _bottomNavController.setBottomNavIndex(1),
+            onTap: () => bottomNavController.setBottomNavIndex(1),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -430,9 +433,12 @@ class LandLordBottomNavigationBar extends StatelessWidget {
                   child: FittedBox(
                     child: SvgPicture.asset(
                       "assets/invoices.svg",
-                      color: _bottomNavController.bottomNavIndex == 1
-                          ? abangColors.abangPrimary
-                          : abangColors.abangPrimary.withOpacity(0.40),
+                      colorFilter: ColorFilter.mode(
+                        bottomNavController.bottomNavIndex == 1
+                            ? abangColors.abangPrimary
+                            : abangColors.abangPrimary.withOpacity(0.40),
+                        BlendMode.srcIn,
+                      ),
                     ),
                   ),
                 ),
@@ -449,7 +455,7 @@ class LandLordBottomNavigationBar extends StatelessWidget {
                       fontSize: 12,
                       height: 0.80,
                       letterSpacing: 0,
-                      color: _bottomNavController.bottomNavIndex == 1
+                      color: bottomNavController.bottomNavIndex == 1
                           ? abangColors.abangPrimary
                           : abangColors.abangPrimary.withOpacity(0.40),
                     ),
@@ -462,7 +468,7 @@ class LandLordBottomNavigationBar extends StatelessWidget {
             width: 65 / mockUpWidth * size.width,
           ),
           InkWell(
-            onTap: () => _bottomNavController.setBottomNavIndex(2),
+            onTap: () => bottomNavController.setBottomNavIndex(2),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -472,9 +478,12 @@ class LandLordBottomNavigationBar extends StatelessWidget {
                   child: FittedBox(
                     child: SvgPicture.asset(
                       "assets/tickets.svg",
-                      color: _bottomNavController.bottomNavIndex == 2
-                          ? abangColors.abangPrimary
-                          : abangColors.abangPrimary.withOpacity(0.40),
+                      colorFilter: ColorFilter.mode(
+                        bottomNavController.bottomNavIndex == 2
+                            ? abangColors.abangPrimary
+                            : abangColors.abangPrimary.withOpacity(0.40),
+                        BlendMode.srcIn,
+                      ),
                     ),
                   ),
                 ),
@@ -491,7 +500,7 @@ class LandLordBottomNavigationBar extends StatelessWidget {
                       fontSize: 12,
                       height: 0.80,
                       letterSpacing: 0,
-                      color: _bottomNavController.bottomNavIndex == 2
+                      color: bottomNavController.bottomNavIndex == 2
                           ? abangColors.abangPrimary
                           : abangColors.abangPrimary.withOpacity(0.40),
                     ),

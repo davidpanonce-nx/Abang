@@ -1,6 +1,6 @@
 import 'package:abang/components/themes.dart';
 import 'package:abang/models/models.dart';
-import 'package:abang/view/my_profile/landlord/edit%20_signature.dart';
+import 'package:abang/view/my_profile/landlord/edit_signature.dart';
 import 'package:abang/view/my_profile/landlord/edit_address.dart';
 import 'package:abang/view/my_profile/landlord/edit_avatar.dart';
 import 'package:abang/view/my_profile/landlord/edit_contact_info.dart';
@@ -113,14 +113,16 @@ class WhatToEdit extends StatelessWidget {
                   GestureDetector(
                     onTap: () async {
                       await editProfileController.readJson();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EditAddress(
-                            userData: userData,
+                      if (context.mounted) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => EditAddress(
+                              userData: userData,
+                            ),
                           ),
-                        ),
-                      );
+                        );
+                      }
                     },
                     child: editButtonSelection("Address", size, textScale),
                   ),

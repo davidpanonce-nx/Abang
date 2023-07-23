@@ -39,8 +39,7 @@ class WalkthroughWrapper extends StatelessWidget {
                   DotsIndicator(
                     dotsCount:
                         onBoardingPageController.onBoardingScreens.length,
-                    position:
-                        onBoardingPageController.currentPageIndex.toDouble(),
+                    position: onBoardingPageController.currentPageIndex,
                     decorator: DotsDecorator(
                       activeColor: abangColors.abangSecondary,
                       color: abangColors.abangWhite,
@@ -70,7 +69,7 @@ class WalkthroughWrapper extends StatelessWidget {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: abangColors.abangSecondary,
+                      backgroundColor: abangColors.abangSecondary,
                       shape: RoundedRectangleBorder(
                         borderRadius:
                             BorderRadius.circular(5 / mockUpWidth * size.width),

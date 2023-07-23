@@ -127,7 +127,7 @@ class _LandlordHomeState extends State<LandlordHome> {
                                 } else {
                                   if (snapshot.hasData) {
                                     return Text(
-                                      snapshot.data!.toUpperCase() + "!",
+                                      "${snapshot.data!.toUpperCase()}!",
                                       textScaleFactor: textScale,
                                       textAlign: TextAlign.left,
                                       style: GoogleFonts.outfit(
@@ -213,7 +213,7 @@ class _LandlordHomeState extends State<LandlordHome> {
                           } else {
                             if (snapshot.hasData) {
                               return Text(
-                                snapshot.data!.toUpperCase() + "!",
+                                "${snapshot.data!.toUpperCase()}!",
                                 textScaleFactor: textScale,
                                 textAlign: TextAlign.left,
                                 style: GoogleFonts.outfit(
@@ -669,9 +669,9 @@ class _LandlordHomeState extends State<LandlordHome> {
                   SizedBox(
                     height: 10 / mockUpHeight * size.height,
                   ),
-                  Center(
+                  const Center(
                     child: Column(
-                      children: const [
+                      children: [
                         RecentTicketCard(
                             ticketNumber: "T#001-2022",
                             subject: "Subject",

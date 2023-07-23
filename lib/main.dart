@@ -96,13 +96,13 @@ class AbangAuthWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _userStream = Provider.of<DataStreams>(context);
+    final userStream = Provider.of<DataStreams>(context);
     return StreamBuilder<User?>(
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return StreamBuilder<String>(
-              stream: _userStream.userData,
+              stream: userStream.userData,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   if (snapshot.data == "TBD") {

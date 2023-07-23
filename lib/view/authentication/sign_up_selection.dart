@@ -60,7 +60,7 @@ class SignUpSelection extends StatelessWidget {
                     });
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: abangColors.abangYellow,
+                    backgroundColor: abangColors.abangYellow,
                     shape: RoundedRectangleBorder(
                       borderRadius:
                           BorderRadius.circular(5 / mockUpWidth * size.width),

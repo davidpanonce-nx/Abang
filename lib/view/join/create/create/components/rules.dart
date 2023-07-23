@@ -33,9 +33,7 @@ class Rules extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  createHouseCodeController.rulesWidgets[id]["index"]
-                          .toString() +
-                      ".",
+                  "${createHouseCodeController.rulesWidgets[id]["index"].toString()}.",
                   textScaleFactor: textScale,
                   style: GoogleFonts.inter(
                     textStyle: TextStyle(

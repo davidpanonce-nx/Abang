@@ -85,8 +85,8 @@ class _SignUpPage3State extends State<SignUpPage3>
   }
 
   bool _handleOnDrawStart() {
-    SignUpPageController _signUpPageController = SignUpPageController();
-    _signUpPageController.setIsSigned(true);
+    SignUpPageController signUpPageController = SignUpPageController();
+    signUpPageController.setIsSigned(true);
     return false;
   }
 
@@ -139,8 +139,8 @@ class _SignUpPage3State extends State<SignUpPage3>
   }
 
   void _showDrawPad() {
-    SignUpPageController _signUpPageController = SignUpPageController();
-    _signUpPageController.setIsSigned(false);
+    SignUpPageController signUpPageController = SignUpPageController();
+    signUpPageController.setIsSigned(false);
 
     showDialog<Widget>(
       context: context,
@@ -275,8 +275,8 @@ class _SignUpPage3State extends State<SignUpPage3>
 
   void _handleClearButtonPressed() {
     _signaturePadKey.currentState!.clear();
-    SignUpPageController _signUpPageController = SignUpPageController();
-    _signUpPageController.setIsSigned(false);
+    SignUpPageController signUpPageController = SignUpPageController();
+    signUpPageController.setIsSigned(false);
   }
 
   Future<void> _handleSaveButtonPressed() async {
@@ -290,8 +290,8 @@ class _SignUpPage3State extends State<SignUpPage3>
       data = bytes.buffer.asUint8List();
     }
 
-    SignUpPageController _signUpPageController = SignUpPageController();
-    _signUpPageController.setSignatureData(data);
+    SignUpPageController signUpPageController = SignUpPageController();
+    signUpPageController.setSignatureData(data);
   }
 
   @override

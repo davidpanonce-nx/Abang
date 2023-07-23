@@ -1,5 +1,5 @@
-import 'package:abang/view/join/create/create/components/otherPayments.dart';
-import 'package:abang/view/join/create/create/components/paymentInclusions.dart';
+import 'package:abang/view/join/create/create/components/other_payments.dart';
+import 'package:abang/view/join/create/create/components/payment_inclusions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';

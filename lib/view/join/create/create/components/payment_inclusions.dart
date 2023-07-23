@@ -36,9 +36,7 @@ class PaymentInclusion extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                createHouseCodeController.paymentInclusionWidgets[id]["index"]
-                        .toString() +
-                    ".",
+                "${createHouseCodeController.paymentInclusionWidgets[id]["index"].toString()}.",
                 textScaleFactor: textScale,
                 style: GoogleFonts.inter(
                   textStyle: TextStyle(

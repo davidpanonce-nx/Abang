@@ -55,10 +55,10 @@ class _CreateHouseCodeDetailsState extends State<CreateHouseCodeDetails> {
                 horizontal: 11.5 / mockUpWidth * size.width),
             child: DropdownButtonFormField2(
               isExpanded: true,
-              itemHeight: 60 / mockUpHeight * size.height,
-              dropdownMaxHeight: 200 / mockUpHeight * size.height,
-              offset: Offset(0, 10.0 / mockUpHeight * size.height),
-              focusColor: abangColors.abangYellow,
+              // itemHeight: 60 / mockUpHeight * size.height,
+              // dropdownMaxHeight: 200 / mockUpHeight * size.height,
+              // offset: Offset(0, 10.0 / mockUpHeight * size.height),
+              // focusColor: abangColors.abangYellow,
               validator: (val) {
                 if (val == null) {
                   return "Establishment type can't be empty";
@@ -111,14 +111,15 @@ class _CreateHouseCodeDetailsState extends State<CreateHouseCodeDetails> {
                   ),
                 ),
               ),
-              dropdownDecoration: BoxDecoration(
-                color: abangColors.abangWhite,
-                borderRadius: BorderRadius.circular(
-                  5 / mockUpWidth * size.width,
-                ),
-              ),
+              // dropdownDecoration: BoxDecoration(
+              //   color: abangColors.abangWhite,
+              //   borderRadius: BorderRadius.circular(
+              //     5 / mockUpWidth * size.width,
+              //   ),
+              // ),
               items: createHouseCodeController.establishmentType.map((e) {
                 return DropdownMenuItem(
+                  value: e,
                   child: Text(
                     e,
                     textScaleFactor: textScale,
@@ -126,7 +127,6 @@ class _CreateHouseCodeDetailsState extends State<CreateHouseCodeDetails> {
                     style: abangTextStyles.smallTextStyle
                         .copyWith(color: abangColors.abangPrimary),
                   ),
-                  value: e,
                 );
               }).toList(),
               onChanged: (val) {
